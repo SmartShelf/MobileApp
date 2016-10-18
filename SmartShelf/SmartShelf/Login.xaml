@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartShelf.Login">
+
+
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Smart Shelf Mobile App"></ToolbarItem>
+    <!--<ToolbarItem Icon="settingsstack.png"
+                 Clicked="OnSettingStackClicked"/>-->
+  </ContentPage.ToolbarItems>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="StackLayout">
+        <!-- Since no x:Key value was given, this style will apply to all StackLayouts on this page -->
+        <Setter Property="Padding">
+          <OnIdiom x:TypeArguments="Thickness"
+                   Phone="5,4"
+                   Tablet="10,7"/>
+        </Setter>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  
+  <Grid>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <TableView Intent="Form"
+               HasUnevenRows="True"
+               Grid.Row="0"
+               Grid.Column="0">
+      <TableRoot>
+        <TableSection>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout>
+                <Label x:Name="Title" Text="{Binding MainText}" VerticalOptions="Start" HorizontalOptions="Center" />
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout>
+                
+                <Label Text="Username"/>
+                <Entry x:Name="txtUsername" Text="{Binding UserName}"/>
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout>
+                <Label Text="Password"/>
+                <Entry x:Name="txtPassword" Text="{Binding Password}"/>
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+
+          <ViewCell>
+            <ViewCell.View>
+              <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--<Button Text="Delete"
+                        Clicked="OnDeleteClicked"
+                        Grid.Row="0"
+                        Grid.Column="0"/>-->
+                <Button Text="Login"
+                        HorizontalOptions="Center"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Clicked="OnLoginClicked"/>
+                <Button Text="Register"
+                        Clicked="OnRegisterClicked"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+              </Grid>
+            </ViewCell.View>
+          </ViewCell>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout>
+                <Label x:Name="LoginMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+        </TableSection>
+      </TableRoot>
+    </TableView>
+
+    <ActivityIndicator IsVisible="{Binding IsBusy}"
+                       IsRunning="{Binding IsBusy}"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+  </Grid>
+</ContentPage>
