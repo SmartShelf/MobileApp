@@ -19,6 +19,13 @@ namespace SmartShelf
         {
             InitializeComponent();
             client = new HttpClient();
+            var logoutButton = new ToolbarItem
+            {
+                
+                Name = "Logout",
+                Command = new Command(this.LogoutClicked)
+            };
+            ToolbarItems.Add(logoutButton);
             LoadProducts();
              
         }
@@ -83,6 +90,43 @@ namespace SmartShelf
             {
                 var exst = ex.Message;
                // LoginMessage.Text = exst;
+            }
+            // await _viewModel.SaveCarAsync();
+        }
+        private async void LogoutClicked()
+        {
+            try
+            {
+                // var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/login?username={0}&password={1}", txtUsername.Text, txtPassword.Text));
+                //var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/products", string.Empty));
+                //var response = await client.GetAsync(uri);
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    var content = await response.Content.ReadAsStringAsync();
+                //    var loginInfo = JsonConvert.DeserializeObject<LoginInfo>(content);
+
+
+                //    LoginMessage.Text = "Welcome " + loginInfo.firstName + " " + loginInfo.lastName;
+                    var AppNavPage = new NavigationPage(new Login())
+                    {
+                        BarBackgroundColor = Color.Green,
+                        BarTextColor = Color.White
+                    };
+                    AppNavPage.Title = "Smart Shelf Mobile App!";
+
+
+                    await Navigation.PushModalAsync(AppNavPage);
+                //}
+                //else
+                //{
+                //ShelffMessage.Text = "Shelf" + txtScaleID.Text + " has been registered to your mobile profile.";
+                //}
+
+            }
+            catch (Exception ex)
+            {
+                var exst = ex.Message;
+                // LoginMessage.Text = exst;
             }
             // await _viewModel.SaveCarAsync();
         }

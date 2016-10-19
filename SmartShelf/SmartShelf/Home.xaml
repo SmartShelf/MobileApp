@@ -5,8 +5,7 @@
 
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Smart Shelf Dashboard"></ToolbarItem>
-    <!--<ToolbarItem Icon="settingsstack.png"
-                 Clicked="OnSettingStackClicked"/>-->
+   
   </ContentPage.ToolbarItems>
 <ContentPage.Resources>
   <ResourceDictionary>
@@ -58,7 +57,13 @@
             </StackLayout>
           </ViewCell.View>
         </ViewCell>
-
+        <ViewCell>
+          <ViewCell.View>
+            <StackLayout>
+              <Label x:Name="ShelffMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+            </StackLayout>
+          </ViewCell.View>
+        </ViewCell>
         <ViewCell>
           <ViewCell.View>
             <StackLayout>
@@ -66,7 +71,7 @@
               <Picker x:Name="ProductsPicker" SelectedIndex="{Binding Product}" HorizontalOptions="FillAndExpand">
                 
               </Picker>
-              <Entry x:Name="txtProduct" Text="{Binding Product}"/>
+             
             </StackLayout>
           </ViewCell.View>
         </ViewCell>
@@ -98,13 +103,7 @@
             </Grid>
           </ViewCell.View>
         </ViewCell>
-        <ViewCell>
-          <ViewCell.View>
-            <StackLayout>
-              <Label x:Name="ShelffMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-            </StackLayout>
-          </ViewCell.View>
-        </ViewCell>
+        
       </TableSection>
     </TableRoot>
   </TableView>
