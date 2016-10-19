@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartShelf.Home">
+
   <ContentPage.ToolbarItems>
-    <ToolbarItem Text="Smart Shelf Mobile App"></ToolbarItem>
+    <ToolbarItem Text="Smart Shelf Dashboard"></ToolbarItem>
     <!--<ToolbarItem Icon="settingsstack.png"
                  Clicked="OnSettingStackClicked"/>-->
   </ContentPage.ToolbarItems>
-
 <ContentPage.Resources>
   <ResourceDictionary>
     <Style TargetType="StackLayout">
@@ -48,8 +48,13 @@
           <ViewCell.View>
             <StackLayout>
 
-              <Label Text="Register your Smart Shelf"/>
+              <Label Text="Register your Smart Shelf (Enter or Scan barcode)"/>
               <Entry x:Name="txtScaleID" Text="{Binding ScaleID}"/>
+              <Button Text="Register"
+                        HorizontalOptions="Center"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Clicked="OnRegisterScaleClicked"/>
             </StackLayout>
           </ViewCell.View>
         </ViewCell>
@@ -57,8 +62,11 @@
         <ViewCell>
           <ViewCell.View>
             <StackLayout>
-              <Label Text="Products on your Smart Shelf"/>
-              <Entry x:Name="txtPassword" Text="{Binding Password}"/>
+              <Label Text="Products on your Smart Shelf Scales:"/>
+              <Picker x:Name="ProductsPicker" SelectedIndex="{Binding Product}" HorizontalOptions="FillAndExpand">
+                
+              </Picker>
+              <Entry x:Name="txtProduct" Text="{Binding Product}"/>
             </StackLayout>
           </ViewCell.View>
         </ViewCell>

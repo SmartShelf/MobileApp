@@ -53,13 +53,14 @@ namespace SmartShelf
                     LoginMessage.Text = "Welcome " +  loginInfo.firstName + " " + loginInfo.lastName;
                     var AppNavPage = new NavigationPage(new Home())
                     {
-                        BarBackgroundColor = Color.Green,
-                        BarTextColor = Color.White
+                      //  BarBackgroundColor = Color.Green,
+                      ///  BarTextColor = Color.White
                     };
-                    AppNavPage.Title = "Smart Shelf! Hi";
+                    
+                    AppNavPage.Title = "Logout";
 
-
-                    await Navigation.PushAsync(AppNavPage);
+                  //  await Navigation.
+                    await Navigation.PushModalAsync(AppNavPage);
                 }
                 else
                 {
