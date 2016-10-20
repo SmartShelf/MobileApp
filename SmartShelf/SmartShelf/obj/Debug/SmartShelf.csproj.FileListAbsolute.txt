@@ -25,3 +25,7 @@ C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\S
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.csprojResolveAssemblyReference.cache
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.dll.mdb
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\bin\Debug\SmartShelf.dll.mdb
+C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.dll.mdb
+C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\bin\Debug\SmartShelf.dll.mdb
+C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.dll.mdb
+C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\bin\Debug\SmartShelf.dll.mdb
