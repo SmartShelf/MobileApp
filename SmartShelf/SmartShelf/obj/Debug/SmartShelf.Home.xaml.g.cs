@@ -26,7 +26,10 @@ namespace SmartShelf {
         private global::Xamarin.Forms.Label ShelffMessage;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Picker ProductsPicker;
+        private global::Xamarin.Forms.StackLayout prodLayout;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView lstScales;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
@@ -34,7 +37,8 @@ namespace SmartShelf {
             Title = this.FindByName<global::Xamarin.Forms.Label>("Title");
             txtScaleID = this.FindByName<global::Xamarin.Forms.Entry>("txtScaleID");
             ShelffMessage = this.FindByName<global::Xamarin.Forms.Label>("ShelffMessage");
-            ProductsPicker = this.FindByName<global::Xamarin.Forms.Picker>("ProductsPicker");
+            prodLayout = this.FindByName<global::Xamarin.Forms.StackLayout>("prodLayout");
+            lstScales = this.FindByName<global::Xamarin.Forms.ListView>("lstScales");
         }
     }
 }

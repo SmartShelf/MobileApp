@@ -66,11 +66,11 @@
         </ViewCell>
         <ViewCell>
           <ViewCell.View>
-            <StackLayout>
+            <StackLayout x:Name ="prodLayout">
               <Label Text="Products on your Smart Shelf Scales:"/>
-              <Picker x:Name="ProductsPicker" SelectedIndex="{Binding Product}" HorizontalOptions="FillAndExpand">
+              <!--<Picker x:Name="ProductsPicker" SelectedIndex="{Binding Product}" HorizontalOptions="FillAndExpand">
                 
-              </Picker>
+              </Picker>-->
              
             </StackLayout>
           </ViewCell.View>
@@ -87,6 +87,40 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
               </Grid.ColumnDefinitions>
+               <ListView x:Name="lstScales" SeparatorColor="Black"
+                HasUnevenRows="True"
+                         Grid.Row="0"
+                Grid.Column="0">
+                <!--ItemTapped="OnCarTapped"-->
+                
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                <StackLayout BackgroundColor="White">
+
+                  <StackLayout.Padding>
+                    <OnIdiom x:TypeArguments="Thickness"
+                             Phone="5,4,5,3"
+                             Tablet="10,7,10,5"/>
+                  </StackLayout.Padding>
+
+                  <Label Text="{Binding id}"/>
+                  <Label Text="{Binding weight}"
+                         FontSize="Small"/>
+
+                </StackLayout>
+              </ViewCell.View>
+              <ViewCell.ContextActions>
+                <!--<MenuItem Text="Delete"
+                          IsDestructive="True"
+                          --><!--Clicked="OnMenuItemClicked"--><!--
+                          CommandParameter="{Binding}"/>-->
+              </ViewCell.ContextActions>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
               <!--<Button Text="Delete"
                         Clicked="OnDeleteClicked"
                         Grid.Row="0"

@@ -26,6 +26,22 @@ namespace SmartShelf.Entities
        
     }
 
+    public class Scale
+    {
+        public int id { get; set; }
+
+        public long weight { get; set; }
+
+        public int productId { get; set; }
+
+    }
+
+    public class Shelf
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public List<Scale> scales { get; set; }
+    }
     public class ProductList
     {
         public List<Product> Products { get; set; }
