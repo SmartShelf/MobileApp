@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartShelf.ShelfSelect">
+
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Smart Shelf - Register Shelves"></ToolbarItem>
+
+  </ContentPage.ToolbarItems>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="StackLayout">
+        <!-- Since no x:Key value was given, this style will apply to all StackLayouts on this page -->
+        <Setter Property="Padding">
+          <OnIdiom x:TypeArguments="Thickness"
+                   Phone="5,4"
+                   Tablet="10,7"/>
+        </Setter>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <Grid>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <TableView Intent="Form"
+               HasUnevenRows="True"
+               Grid.Row="0"
+               Grid.Column="0">
+      <TableRoot>
+        <TableSection>
+          <!--<ViewCell>
+            <ViewCell.View>
+              <StackLayout>
+                <Label x:Name="Title" Text="{Binding MainText}" VerticalOptions="Start" HorizontalOptions="Center" />
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell> -->
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout>
+
+                <Label Text="Register a New Smart Shelf (Enter or Scan barcode)"/>
+                <Entry x:Name="txtScaleID" Text="{Binding ScaleID}"/>
+                <Label Text="Description"/>
+                <Entry x:Name="txtDescription" Text="{Binding Description}"/>
+                <Button Text="Register"
+                          HorizontalOptions="Center"
+                          Grid.Row="0"
+                          Grid.Column="0"
+                          Clicked="OnRegisterShelfClicked" />
+                          
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout>
+                <Label x:Name="ShelffMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout x:Name ="shelfLayout">
+                
+                <!--<Picker x:Name="ProductsPicker" SelectedIndex="{Binding Product}" HorizontalOptions="FillAndExpand">
+                
+              </Picker>-->
+
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+
+
+        </TableSection>
+      </TableRoot>
+    </TableView>
+
+    <ActivityIndicator IsVisible="{Binding IsBusy}"
+                       IsRunning="{Binding IsBusy}"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+  </Grid>
+</ContentPage>

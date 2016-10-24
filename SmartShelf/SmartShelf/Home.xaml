@@ -36,19 +36,21 @@
              Grid.Column="0">
     <TableRoot>
       <TableSection>
-        <ViewCell>
+        <!--<ViewCell>
           <ViewCell.View>
             <StackLayout>
               <Label x:Name="Title" Text="{Binding MainText}" VerticalOptions="Start" HorizontalOptions="Center" />
             </StackLayout>
           </ViewCell.View>
-        </ViewCell>
-        <ViewCell>
+        </ViewCell>-->
+        <!--<ViewCell>
           <ViewCell.View>
             <StackLayout>
 
               <Label Text="Register your Smart Shelf (Enter or Scan barcode)"/>
               <Entry x:Name="txtScaleID" Text="{Binding ScaleID}"/>
+              <Label Text="Description"/>
+              <Entry x:Name="txtDescription" Text="{Binding Description}"/>
               <Button Text="Register"
                         HorizontalOptions="Center"
                         Grid.Row="0"
@@ -63,7 +65,7 @@
               <Label x:Name="ShelffMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
             </StackLayout>
           </ViewCell.View>
-        </ViewCell>
+        </ViewCell>-->
         <ViewCell>
           <ViewCell.View>
             <StackLayout x:Name ="prodLayout">

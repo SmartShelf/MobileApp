@@ -29,7 +29,7 @@ namespace SmartShelf
             };
             var AppNavPage = new NavigationPage(new Login())
             {
-                BarBackgroundColor = Color.Green,
+                BarBackgroundColor = Color.Blue,
                 BarTextColor = Color.White
             };
             AppNavPage.Title = "Smart Shelf! Hi";

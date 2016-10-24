@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,28 +20,48 @@ namespace SmartShelf.Entities
     }
     public class Product
     {
-        public int id { get; set; }
-        public long weight { get; set; }
+        public string id { get; set; }
+        public string weight { get; set; }
+
+        public string packageWeight { get; set; }
         public string name { get; set; }
         public string barcode { get; set; }
-       
+        
+        
+
     }
 
     public class Scale
     {
         public int id { get; set; }
 
-        public long weight { get; set; }
+        public string weight { get; set; }
 
-        public int productId { get; set; }
+        public string productId { get; set; }
+
+        public string persentage { get; set; }
+
+        public string registerDate { get; set; }
+
+        public string updateDate { get; set; }
+
+        public string estimatedDate { get; set; }
+        public Scale()
+        {
+
+        }
 
     }
 
     public class Shelf
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string name { get; set; }
         public List<Scale> scales { get; set; }
+        public Shelf()
+        {
+
+        }
     }
     public class ProductList
     {
@@ -50,5 +71,6 @@ namespace SmartShelf.Entities
     public class Products
     {
         public ProductList productList { get; set; }
+        
     }
 }

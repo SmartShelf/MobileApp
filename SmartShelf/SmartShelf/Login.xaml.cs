@@ -51,7 +51,8 @@ namespace SmartShelf
 
 
                     LoginMessage.Text = "Welcome " +  loginInfo.firstName + " " + loginInfo.lastName;
-                    var AppNavPage = new NavigationPage(new Home())
+                   // var AppNavPage = new NavigationPage(new Home())
+                    var AppNavPage = new NavigationPage(new ShelfSelect())
                     {
                       //  BarBackgroundColor = Color.Green,
                       ///  BarTextColor = Color.White

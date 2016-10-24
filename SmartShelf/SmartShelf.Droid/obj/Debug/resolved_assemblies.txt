@@ -55,3 +55,4 @@ C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.Droid\obj\D
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.Droid\obj\Debug\android\assets\System.Collections.Concurrent.dll
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.Droid\obj\Debug\android\assets\System.Resources.ResourceManager.dll
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.Droid\obj\Debug\android\assets\System.Diagnostics.Tools.dll
+C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.Droid\obj\Debug\android\assets\System.Net.Requests.dll
