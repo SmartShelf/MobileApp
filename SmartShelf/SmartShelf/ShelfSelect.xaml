@@ -46,40 +46,40 @@
           <ViewCell>
             <ViewCell.View>
               <StackLayout>
-
-                <Label Text="Register a New Smart Shelf (Enter or Scan barcode)"/>
-                <Entry x:Name="txtScaleID" Text="{Binding ScaleID}"/>
-                <Label Text="Description"/>
-                <Entry x:Name="txtDescription" Text="{Binding Description}"/>
-                <Button Text="Register"
-                          HorizontalOptions="Center"
-                          Grid.Row="0"
-                          Grid.Column="0"
-                          Clicked="OnRegisterShelfClicked" />
+                <Label Text="Welcome to Your Smart Shelf Dashboard!" TextColor="Blue" FontSize="20"></Label>
+                
                           
               </StackLayout>
             </ViewCell.View>
           </ViewCell>
-          <ViewCell>
-            <ViewCell.View>
-              <StackLayout>
-                <Label x:Name="ShelffMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-              </StackLayout>
-            </ViewCell.View>
-          </ViewCell>
+          
           <ViewCell>
             <ViewCell.View>
               <StackLayout x:Name ="shelfLayout">
-                
+                <Label x:Name="ShelffMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
                 <!--<Picker x:Name="ProductsPicker" SelectedIndex="{Binding Product}" HorizontalOptions="FillAndExpand">
                 
               </Picker>-->
-
+                
               </StackLayout>
             </ViewCell.View>
           </ViewCell>
 
-
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout x:Name ="registerLayout">
+                <Label Text="Register a New Smart Shelf (Enter or Scan barcode)" TextColor="Black" />
+                <Entry x:Name="txtScaleID" Text="{Binding ScaleID}"/>
+                <Label Text="Description"/>
+                <Entry x:Name="txtDescription" Text="{Binding Description}"/>
+                <Button Text="Register"
+                          
+                          Clicked="OnRegisterShelfClicked" />
+                <Button Text="Cancel" Clicked="HideRegister"></Button>
+                
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
         </TableSection>
       </TableRoot>
     </TableView>

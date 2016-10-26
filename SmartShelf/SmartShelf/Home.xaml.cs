@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using SmartShelf.Entities;
 
@@ -18,8 +19,8 @@ namespace SmartShelf
         HttpClient client;
         List<Product> products;
         Picker picker;
-        int ShelfId;
-        public Home(int shelfId)
+        string ShelfId;
+        public Home(string shelfId)
         {
             ShelfId = shelfId;
             InitializeComponent();
@@ -39,8 +40,36 @@ namespace SmartShelf
                 Command = new Command(this.LogoutClicked)
             };
             ToolbarItems.Add(logoutButton);
+            LoadStatic();
+            
             LoadScales();
-             
+            var seconds = TimeSpan.FromSeconds(5);
+
+            Device.StartTimer(seconds, () => {
+
+                // call your method to check for notifications here
+                LoadScales();
+                // Returning true means you want to repeat this timer
+                return true;
+            });
+
+        }
+        private async Task LoadStatic()
+        {
+            picker = new Picker();
+            await LoadProducts();
+            foreach (var p in products)
+            {
+                picker.Items.Add(p.name + " - weight: " + p.weight + " grams");
+            }
+            
+            //picker.SelectedIndex = picker.Items.IndexOf(s.productId.ToString());
+            //int i = 1;
+            //shelf.scales.ForEach(delegate(Scale s))
+            //    { 
+
+            staticLayout.Children.Add(new Label() { Text = "Register New Smart Shelf Product", Font = Font.BoldSystemFontOfSize(17) });
+            staticLayout.Children.Add(picker);
         }
         private async Task LoadProducts()
         {
@@ -81,29 +110,14 @@ namespace SmartShelf
 
                     prodLayout.Children.Clear();
 
+
                     
-                    picker = new Picker();
-                    await LoadProducts();
-                    foreach (var p in products)
-                    {
-                        picker.Items.Add(p.name + " - weight: " + p.weight + " grams");
-                    }
-                    Picker picker2;
-                    picker2 = new Picker();
-                    foreach (var s in shelf.scales)
-                    {
-                        picker2.Items.Add(s.id.ToString());
-                    }
-                    //picker.SelectedIndex = picker.Items.IndexOf(s.productId.ToString());
-                    //int i = 1;
-                    //shelf.scales.ForEach(delegate(Scale s))
-                    //    { 
                     for (int i = 0; i < shelf.scales.Count; i++)
                     //foreach (Scale s in shelf.scales.ToList())
                     {
                         Scale s = shelf.scales[i];
                         var back = Color.Green;
-
+                        var backText = Color.White;
                         string perc = "";
                         //if (shelf.scales[i].persentage != null)
                         //{
@@ -115,6 +129,7 @@ namespace SmartShelf
                         //}
                         //else
                         //{
+                        lblTitle.Text = "Details for Shelf: " + shelf.name;
                         shelf.scales[i].estimatedDate = "01/01/2019";
                         // await SaveScale(shelf.scales[i]);
                         long tempPerc = 0;
@@ -146,7 +161,9 @@ namespace SmartShelf
                                 }
                                 else if (calcPerc < 50)
                                 {
+
                                     back = Color.Yellow;
+                                    backText = Color.Blue;
                                 }
                             }
                             else
@@ -165,6 +182,7 @@ namespace SmartShelf
                             else if (tempPerc < 50)
                             {
                                 back = Color.Yellow;
+                                backText = Color.Blue;
                             }
                         }
                         //  }
@@ -188,18 +206,73 @@ namespace SmartShelf
                         string estmatedDate = "01/01/2017";
                         if (shelf.scales[i].estimatedDate != null)
                             estmatedDate = shelf.scales[i].estimatedDate;
-                        Label l1 = new Label() { Text = "Scale " + (i + 1).ToString() + ":  ", FontSize = 17 };
-                        Label l2 = new Label() { Text = "Product: " + productName, Font=Font.BoldSystemFontOfSize(15) };
-                        Label l3 = new Label() { Text = "Scale Weight: " + scaleWeight, FontSize = 14 };
-                        Label l4 = new Label() { Text = "Capacity Weight: " + capacity };
-                        Label l5 = new Label() { Text = perc + " Full, Estimated Refill Date: " + estmatedDate, BackgroundColor = back, FontSize = 15, TextColor = Color.White };
-                        prodLayout.Children.Add(l1);
-                        prodLayout.Children.Add(l2);
+                        var image = new Image
+                        {
+                            // Some differences with loading images in initial release.
+                            Source =
+                                ImageSource.FromResource("scale.png"),
+                            
+                           
+                        };
+                        // Label l1 = new Label() { Text = "Scale " + (i + 1).ToString() + ":  ", FontSize = 17 };
+                        var grid = new Grid();
+                        grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                       // grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                        grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                       // grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                        
+                       
+
+                        Label l2 = new Label() { Text = "Product: " + productName, Font=Font.BoldSystemFontOfSize(19), TextColor = Color.Green };
+                        Label l3 = new Label() { Text = "Scale Weight: " + scaleWeight + ", Capacity Weight: " + capacity, FontSize = 14 };
+                        grid.Children.Add(l2);
+                        if (i == 0)
+                        {
+                            Button btnScale1 = new Button();
+                            btnScale1.Text = "Update Product";
+                            btnScale1.AutomationId = "1";
+                            btnScale1.Clicked += SaveShelf;
+                            btnScale1.Font = Font.SystemFontOfSize(NamedSize.Small);
+                            btnScale1.BorderWidth = 1;
+                            btnScale1.HorizontalOptions = LayoutOptions.Center;
+                            btnScale1.VerticalOptions = LayoutOptions.CenterAndExpand;
+                           // grid.Children.Add(new Label() { Text = "Select New Prodcut Above" }, 0, 0);
+                            grid.Children.Add(btnScale1, 1, 0);
+                            // prodLayout.Children.Add(btnScale1);
+                        }
+                        if (i == 1)
+                        {
+                            Button btnScale2 = new Button();
+                            btnScale2.Text = "Update Product";
+                            btnScale2.AutomationId = "2";
+                            btnScale2.Font = Font.SystemFontOfSize(NamedSize.Small);
+                            btnScale2.BorderWidth = 1;
+                            btnScale2.HorizontalOptions = LayoutOptions.Center;
+                            btnScale2.VerticalOptions = LayoutOptions.CenterAndExpand;
+                            btnScale2.Clicked += SaveShelf;
+                          //  grid.Children.Add(new Label() { Text = "Select New Prodcut Above" }, 0, 0);
+                            grid.Children.Add(btnScale2, 1, 0);
+                            //  prodLayout.Children.Add(btnScale2);
+                        }
+                        
+                        
+                       // grid.Children.Add(bottomLeft, 1, 0);
+                      //  grid.Children.Add(bottomRight, 1, 1);
+                        BoxView box = new BoxView() { HeightRequest = 1, WidthRequest = 1, BackgroundColor = Color.Black };
+
+                             Label l5 = new Label() { Text = perc + " Full, Estimated Refill Date: " + estmatedDate, BackgroundColor = back, FontSize = 15, TextColor = backText };
+
+
+                        //prodLayout.Children.Add(image);
+
+                        // prodLayout.Children.Add(l1);
+                       // prodLayout.Children.Add(l2);
+                        prodLayout.Children.Add(grid);
                         prodLayout.Children.Add(l3);
-                        prodLayout.Children.Add(l4);
+                        
                         prodLayout.Children.Add(l5);
 
-
+                        prodLayout.Children.Add(box);
 
 
                     }
@@ -207,19 +280,10 @@ namespace SmartShelf
                     btnRefresh.Text = "Refresh Scales";
                     btnRefresh.AutomationId = "2";
                     btnRefresh.Clicked += RefreshShelf;
-                    prodLayout.Children.Add(btnRefresh);
-                    prodLayout.Children.Add(new Label() { Text = "Register New Product", Font = Font.BoldSystemFontOfSize(17) });
-                    prodLayout.Children.Add(picker);
-                    Button btnScale1 = new Button();
-                    btnScale1.Text = "Update Scale 1";
-                    btnScale1.AutomationId = "1";
-                    btnScale1.Clicked += SaveShelf;
-                    prodLayout.Children.Add(btnScale1);
-                    Button btnScale2 = new Button();
-                    btnScale2.Text = "Update Scale 2";
-                    btnScale2.AutomationId = "2";
-                    btnScale2.Clicked += SaveShelf;
-                    prodLayout.Children.Add(btnScale2);
+                    //prodLayout.Children.Add(btnRefresh);
+                    
+                    
+                    
 
                     // prodLayout.Children.Add(picker2);
                     // prodLayout.Children.Add(new Button() { Text = "Update Product" });

@@ -18,7 +18,7 @@ namespace SmartShelf
         {
             InitializeComponent();
             client = new HttpClient();
-            Title.Text = "Smart Shelf Login";
+            Title.Text = "Welcome to the Smart Shelf Mobile App!";
             
             
         }

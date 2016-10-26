@@ -1,0 +1,2 @@
+C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.WinPhone\SmartShelf.WinPhone.csproj;neutral
+C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\SmartShelf.csproj;neutral

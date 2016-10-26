@@ -36,109 +36,25 @@
              Grid.Column="0">
     <TableRoot>
       <TableSection>
-        <!--<ViewCell>
+<ViewCell>
           <ViewCell.View>
-            <StackLayout>
-              <Label x:Name="Title" Text="{Binding MainText}" VerticalOptions="Start" HorizontalOptions="Center" />
-            </StackLayout>
-          </ViewCell.View>
-        </ViewCell>-->
-        <!--<ViewCell>
-          <ViewCell.View>
-            <StackLayout>
-
-              <Label Text="Register your Smart Shelf (Enter or Scan barcode)"/>
-              <Entry x:Name="txtScaleID" Text="{Binding ScaleID}"/>
-              <Label Text="Description"/>
-              <Entry x:Name="txtDescription" Text="{Binding Description}"/>
-              <Button Text="Register"
-                        HorizontalOptions="Center"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Clicked="OnRegisterScaleClicked"/>
+            <StackLayout x:Name ="staticLayout">
+              <Label x:Name="lblTitle" Text="Products on your Smart Shelf Scales:" FontSize="20" TextColor="Blue"/>
+              
+             
             </StackLayout>
           </ViewCell.View>
         </ViewCell>
         <ViewCell>
           <ViewCell.View>
-            <StackLayout>
-              <Label x:Name="ShelffMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-            </StackLayout>
-          </ViewCell.View>
-        </ViewCell>-->
-        <ViewCell>
-          <ViewCell.View>
             <StackLayout x:Name ="prodLayout">
-              <Label Text="Products on your Smart Shelf Scales:"/>
-              <!--<Picker x:Name="ProductsPicker" SelectedIndex="{Binding Product}" HorizontalOptions="FillAndExpand">
-                
-              </Picker>-->
+              
+              
              
             </StackLayout>
           </ViewCell.View>
         </ViewCell>
 
-        <ViewCell>
-          <ViewCell.View>
-            <Grid HorizontalOptions="FillAndExpand">
-              <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-              </Grid.RowDefinitions>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-              </Grid.ColumnDefinitions>
-               <ListView x:Name="lstScales" SeparatorColor="Black"
-                HasUnevenRows="True"
-                         Grid.Row="0"
-                Grid.Column="0">
-                <!--ItemTapped="OnCarTapped"-->
-                
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ViewCell>
-              <ViewCell.View>
-                <StackLayout BackgroundColor="White">
-
-                  <StackLayout.Padding>
-                    <OnIdiom x:TypeArguments="Thickness"
-                             Phone="5,4,5,3"
-                             Tablet="10,7,10,5"/>
-                  </StackLayout.Padding>
-
-                  <Label Text="{Binding id}"/>
-                  <Label Text="{Binding weight}"
-                         FontSize="Small"/>
-
-                </StackLayout>
-              </ViewCell.View>
-              <ViewCell.ContextActions>
-                <!--<MenuItem Text="Delete"
-                          IsDestructive="True"
-                          --><!--Clicked="OnMenuItemClicked"--><!--
-                          CommandParameter="{Binding}"/>-->
-              </ViewCell.ContextActions>
-            </ViewCell>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-              <!--<Button Text="Delete"
-                        Clicked="OnDeleteClicked"
-                        Grid.Row="0"
-                        Grid.Column="0"/>-->
-              <!--<Button Text="Login"
-                      HorizontalOptions="Center"
-                      Grid.Row="0"
-                      Grid.Column="0"
-                      Clicked="OnLoginClicked"/>
-              <Button Text="Register"
-                      Clicked="OnRegisterClicked"
-                      Grid.Row="0"
-                      Grid.Column="1"/>-->
-            </Grid>
-          </ViewCell.View>
-        </ViewCell>
         
       </TableSection>
     </TableRoot>

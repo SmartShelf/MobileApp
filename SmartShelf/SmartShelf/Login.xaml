@@ -41,7 +41,10 @@
           <ViewCell>
             <ViewCell.View>
               <StackLayout>
-                <Label x:Name="Title" Text="{Binding MainText}" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="Title" Text="{Binding MainText}" FontSize="22" TextColor="Blue" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label Text="This is the Smart Shelf Mobile App Dashboard for registering and monitoring products on your Smart Shelf Scales." FontSize="12" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label Text="Login" FontSize="18" TextColor="Blue" VerticalOptions="Start" HorizontalOptions="Center" />
+
               </StackLayout>
             </ViewCell.View>
           </ViewCell>

@@ -18,11 +18,14 @@ namespace SmartShelf
     {
         HttpClient client;
         List<Shelf> shelves;
+        Button bReg;
         public ShelfSelect()
         {
             try
             {
                 InitializeComponent();
+                registerLayout.IsVisible = false;
+                bReg = new Button() { Text = "Register a New Shelf" };
                 client = new HttpClient();
                 var logoutButton = new ToolbarItem
                 {
@@ -67,6 +70,8 @@ namespace SmartShelf
                 //else
                 //{
                 ShelffMessage.Text = "Shelf " + txtScaleID.Text + " has been registered to your mobile profile.";
+                registerLayout.IsVisible = false;
+                bReg.IsVisible = true;
                 //}
 
             }
@@ -75,6 +80,16 @@ namespace SmartShelf
                 var exst = ex.Message;
                 // LoginMessage.Text = exst;
             }
+        }
+        private async void ShowRegister(Object sender, EventArgs e)
+        {
+            registerLayout.IsVisible = true;
+            bReg.IsVisible = false;
+        }
+        private async void HideRegister(Object sender, EventArgs e)
+        {
+            registerLayout.IsVisible = false;
+            bReg.IsVisible = true;
         }
         private async void OnShelfClicked(Object sender, EventArgs e)
         {
@@ -91,7 +106,7 @@ namespace SmartShelf
 
                 //    LoginMessage.Text = "Welcome " + loginInfo.firstName + " " + loginInfo.lastName;
                // ShelffMessage.Text = "you clicked " + ((Button)sender).AutomationId;
-                var AppNavPage = new NavigationPage(new Home(int.Parse(((Button)sender).AutomationId)))
+                var AppNavPage = new NavigationPage(new Home(((Button)sender).AutomationId))
                 {
                     BarBackgroundColor = Color.Blue,
                     BarTextColor = Color.White
@@ -127,14 +142,16 @@ namespace SmartShelf
                     shelves = JsonConvert.DeserializeObject<List<Shelf>>(content);
                     string desc = string.Empty;
                     shelfLayout.Children.Clear();
-                    shelfLayout.Children.Add(new Label { Text = "Registered Shelves:" });
+                    shelfLayout.Children.Add(new Label { Text = "Registered Smart Shelves:", TextColor=Color.Black, FontSize=16 });
+                    if (shelves.Count == 0)
+                        shelfLayout.Children.Add(new Label { Text = "None." });
                     foreach (var s in shelves)
                     {
                         if (string.IsNullOrEmpty(s.name))
                             desc = "Shelf " + s.id;
                         else
                             desc = s.name;
-                        shelfLayout.Children.Add(new Label() { Text = desc, FontSize = 22 });
+                        shelfLayout.Children.Add(new Label() { Text = desc, FontSize = 22, TextColor = Color.Green });
                         Button b = new Button();
                         b.Text = "Monitor Scales";
                         b.AutomationId = s.id.ToString();
@@ -143,9 +160,11 @@ namespace SmartShelf
                         shelfLayout.Children.Add(b);
 
                     }
-
-
-
+                    BoxView box = new BoxView() { HeightRequest = 1, WidthRequest = 1, BackgroundColor = Color.Black };
+                    
+                    bReg.Clicked += ShowRegister;
+                    shelfLayout.Children.Add(box);
+                    shelfLayout.Children.Add(bReg);
 
 
                 }
