@@ -60,7 +60,7 @@ namespace SmartShelf
             await LoadProducts();
             foreach (var p in products)
             {
-                picker.Items.Add(p.name + " - weight: " + p.weight + " grams");
+                picker.Items.Add(p.name + " (" + p.weight + " g)");
             }
             
             //picker.SelectedIndex = picker.Items.IndexOf(s.productId.ToString());
@@ -113,25 +113,14 @@ namespace SmartShelf
 
                     
                     for (int i = 0; i < shelf.scales.Count; i++)
-                    //foreach (Scale s in shelf.scales.ToList())
                     {
                         Scale s = shelf.scales[i];
                         var back = Color.Green;
                         var backText = Color.White;
                         string perc = "";
-                        //if (shelf.scales[i].persentage != null)
-                        //{
-                        //    perc = shelf.scales[i].persentage + "%";
-                        //    if (s.persentage < 15)
-                        //    {
-                        //        back = Color.Red;
-                        //    }
-                        //}
-                        //else
-                        //{
+                        
                         lblTitle.Text = "Details for Shelf: " + shelf.name;
                         shelf.scales[i].estimatedDate = "01/01/2019";
-                        // await SaveScale(shelf.scales[i]);
                         long tempPerc = 0;
 
                         if (!long.TryParse(shelf.scales[i].persentage, out tempPerc) || tempPerc == 0)
@@ -214,17 +203,15 @@ namespace SmartShelf
                             
                            
                         };
-                        // Label l1 = new Label() { Text = "Scale " + (i + 1).ToString() + ":  ", FontSize = 17 };
+
                         var grid = new Grid();
                         grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-                       // grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                       // grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                         
                        
 
                         Label l2 = new Label() { Text = "Product: " + productName, Font=Font.BoldSystemFontOfSize(19), TextColor = Color.Green };
-                        Label l3 = new Label() { Text = "Scale Weight: " + scaleWeight + ", Capacity Weight: " + capacity, FontSize = 14 };
+                        Label l3 = new Label() { Text = "Scale Weight: " + scaleWeight + " g, Capacity Weight: " + capacity + " g", FontSize = 14 };
                         grid.Children.Add(l2);
                         if (i == 0)
                         {
@@ -236,9 +223,8 @@ namespace SmartShelf
                             btnScale1.BorderWidth = 1;
                             btnScale1.HorizontalOptions = LayoutOptions.Center;
                             btnScale1.VerticalOptions = LayoutOptions.CenterAndExpand;
-                           // grid.Children.Add(new Label() { Text = "Select New Prodcut Above" }, 0, 0);
                             grid.Children.Add(btnScale1, 1, 0);
-                            // prodLayout.Children.Add(btnScale1);
+
                         }
                         if (i == 1)
                         {
@@ -250,23 +236,16 @@ namespace SmartShelf
                             btnScale2.HorizontalOptions = LayoutOptions.Center;
                             btnScale2.VerticalOptions = LayoutOptions.CenterAndExpand;
                             btnScale2.Clicked += SaveShelf;
-                          //  grid.Children.Add(new Label() { Text = "Select New Prodcut Above" }, 0, 0);
+
                             grid.Children.Add(btnScale2, 1, 0);
-                            //  prodLayout.Children.Add(btnScale2);
+
                         }
                         
-                        
-                       // grid.Children.Add(bottomLeft, 1, 0);
-                      //  grid.Children.Add(bottomRight, 1, 1);
                         BoxView box = new BoxView() { HeightRequest = 1, WidthRequest = 1, BackgroundColor = Color.Black };
 
-                             Label l5 = new Label() { Text = perc + " Full, Estimated Refill Date: " + estmatedDate, BackgroundColor = back, FontSize = 15, TextColor = backText };
+                        Label l5 = new Label() { Text = perc + " Full, Estimated Refill Date: " + estmatedDate, BackgroundColor = back, FontSize = 15, TextColor = backText };
 
-
-                        //prodLayout.Children.Add(image);
-
-                        // prodLayout.Children.Add(l1);
-                       // prodLayout.Children.Add(l2);
+                        
                         prodLayout.Children.Add(grid);
                         prodLayout.Children.Add(l3);
                         
@@ -280,13 +259,7 @@ namespace SmartShelf
                     btnRefresh.Text = "Refresh Scales";
                     btnRefresh.AutomationId = "2";
                     btnRefresh.Clicked += RefreshShelf;
-                    //prodLayout.Children.Add(btnRefresh);
                     
-                    
-                    
-
-                    // prodLayout.Children.Add(picker2);
-                    // prodLayout.Children.Add(new Button() { Text = "Update Product" });
                 }
                 
 
@@ -295,32 +268,11 @@ namespace SmartShelf
             catch (Exception ex)
             {
                 var exst = ex.Message;
-               // LoginMessage.Text = exst;
             }
-            // await _viewModel.SaveCarAsync();
+
         }
 
-        //public class BufferNonStreamedContentHandler : DelegatingHandler
-        //{
-        //    protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
-        //                                                           System.Threading.CancellationToken cancellationToken)
-        //    {
-        //        var response = await base.SendAsync(request, cancellationToken);
-        //        if (response.Content != null)
-        //        {
-        //            var services = request.GetConfiguration().Services;
-        //            var bufferPolicy = (IHostBufferPolicySelector)services.GetService(typeof(IHostBufferPolicySelector));
-
-        //            // If the host is going to buffer it anyway
-        //            if (bufferPolicy.UseBufferedOutputStream(response))
-        //            {
-        //                // Buffer it now so we can catch the exception
-        //                await response.Content.LoadIntoBufferAsync();
-        //            }
-        //        }
-        //        return response;
-        //    }
-        //}
+        
         private async void RefreshShelf(Object sender, EventArgs e)
         {
             try
