@@ -42,7 +42,6 @@ namespace SmartShelf
             try
             {
                 var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/login?username={0}&password={1}", txtUsername.Text, txtPassword.Text));
-                //var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/products", string.Empty));
                 var response = await client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
@@ -51,17 +50,15 @@ namespace SmartShelf
 
 
                     LoginMessage.Text = "Welcome " +  loginInfo.firstName + " " + loginInfo.lastName;
-                   // var AppNavPage = new NavigationPage(new Home())
-                    var AppNavPage = new NavigationPage(new ShelfSelect())
+                   var AppNavPage = new NavigationPage(new ShelfSelect())
                     {
-                      //  BarBackgroundColor = Color.Green,
-                      ///  BarTextColor = Color.White
-                    };
+                       BarBackgroundColor = Color.Blue,
+                       BarTextColor = Color.White
+                   };
                     
-                    AppNavPage.Title = "Logout";
+                    AppNavPage.Title = "Smart Shelf - Select Shelf";
 
-                  //  await Navigation.
-                    await Navigation.PushModalAsync(AppNavPage);
+                   await Navigation.PushModalAsync(AppNavPage);
                 }
                 else
                 {
@@ -73,7 +70,7 @@ namespace SmartShelf
                 var exst = ex.Message;
                 LoginMessage.Text = exst;
             }
-           // await _viewModel.SaveCarAsync();
+           
         }
 
     }

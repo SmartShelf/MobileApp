@@ -95,17 +95,7 @@ namespace SmartShelf
         {
             try
             {
-                // var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/login?username={0}&password={1}", txtUsername.Text, txtPassword.Text));
-                //var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/products", string.Empty));
-                //var response = await client.GetAsync(uri);
-                //if (response.IsSuccessStatusCode)
-                //{
-                //    var content = await response.Content.ReadAsStringAsync();
-                //    var loginInfo = JsonConvert.DeserializeObject<LoginInfo>(content);
-
-
-                //    LoginMessage.Text = "Welcome " + loginInfo.firstName + " " + loginInfo.lastName;
-               // ShelffMessage.Text = "you clicked " + ((Button)sender).AutomationId;
+                
                 var AppNavPage = new NavigationPage(new Home(((Button)sender).AutomationId))
                 {
                     BarBackgroundColor = Color.Blue,
@@ -115,20 +105,14 @@ namespace SmartShelf
 
                 await Navigation.PushModalAsync(AppNavPage);
 
-                //await Navigation.PushModalAsync(AppNavPage);
-                //}
-                //else
-                //{
-                //ShelffMessage.Text = "Shelf" + txtScaleID.Text + " has been registered to your mobile profile.";
-                //}
+               
 
             }
             catch (Exception ex)
             {
                 var exst = ex.Message;
-                // LoginMessage.Text = exst;
+               
             }
-            // await _viewModel.SaveCarAsync();
         }
         private async void LoadShelves()
         {
@@ -156,7 +140,6 @@ namespace SmartShelf
                         b.Text = "Monitor Scales";
                         b.AutomationId = s.id.ToString();
                         b.Clicked += OnShelfClicked;
-                        // Button b = new Button() { Text = "View", AutomationId = "btn" + s.id, Clicked += OnShelfClicked }
                         shelfLayout.Children.Add(b);
 
                     }
@@ -171,10 +154,9 @@ namespace SmartShelf
             }
             catch (Exception ex)
             {
-                //ProductsPicker.Items.Add("Dog Food");
+                
                 return;
-                //ProductsPicker.Items.Add("Ketchup");
-                //ProductsPicker.Items.Add("Detergent");  
+               
             }
         }
         private async Task DoAsyncPut(string url, string postData)
@@ -194,67 +176,30 @@ namespace SmartShelf
                 await client.PutAsync(url, content);
             }
 
-            // Set postData to byte type and set content length
-            //byte[] postBytes = System.Text.UTF8Encoding.UTF8.GetBytes(postData);
-            //request.ContentLength = postBytes.Length;
-
-            //// Write postBytes to request stream
-            //Stream s = request.GetRequestStream();
-            //s.Write(postBytes, 0, postBytes.Length);
-            //s.Close();
-
-            //// Get the reponse
-            //WebResponse response = request.GetResponse();
-
-            //// Status for debugging
-            //string ResponseStatus = (((HttpWebResponse)response).StatusDescription);
-
-            //// Get the content from server and read it from the stream
-            //s = response.GetResponseStream();
-            //StreamReader reader = new StreamReader(s);
-            //string responseFromServer = reader.ReadToEnd();
-
-            //// Clean up and close
-            //reader.Close();
-            //s.Close();
-            //response.Close();
+            
         }
         private async void LogoutClicked()
         {
             try
             {
-                // var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/login?username={0}&password={1}", txtUsername.Text, txtPassword.Text));
-                //var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/products", string.Empty));
-                //var response = await client.GetAsync(uri);
-                //if (response.IsSuccessStatusCode)
-                //{
-                //    var content = await response.Content.ReadAsStringAsync();
-                //    var loginInfo = JsonConvert.DeserializeObject<LoginInfo>(content);
-
-
-                //    LoginMessage.Text = "Welcome " + loginInfo.firstName + " " + loginInfo.lastName;
                 var AppNavPage = new NavigationPage(new Login())
                 {
-                    BarBackgroundColor = Color.Green,
+                    BarBackgroundColor = Color.Blue,
                     BarTextColor = Color.White
                 };
                 AppNavPage.Title = "Smart Shelf Mobile App!";
 
 
                 await Navigation.PushModalAsync(AppNavPage);
-                //}
-                //else
-                //{
-                //ShelffMessage.Text = "Shelf" + txtScaleID.Text + " has been registered to your mobile profile.";
-                //}
+                
 
             }
             catch (Exception ex)
             {
                 var exst = ex.Message;
-                // LoginMessage.Text = exst;
+                
             }
-            // await _viewModel.SaveCarAsync();
+
         }
     }
 }

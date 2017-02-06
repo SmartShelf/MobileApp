@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartShelf.ShelfSelect">
+             x:Class="SmartShelf.ShelfSelect"
+             Title="Smart Shelf - Select Shelf">
 
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Smart Shelf - Register Shelves"></ToolbarItem>
@@ -39,7 +40,7 @@
           <!--<ViewCell>
             <ViewCell.View>
               <StackLayout>
-                <Label x:Name="Title" Text="{Binding MainText}" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="Title" Text="" VerticalOptions="Start" HorizontalOptions="Center" />
               </StackLayout>
             </ViewCell.View>
           </ViewCell> -->
@@ -56,8 +57,8 @@
           <ViewCell>
             <ViewCell.View>
               <StackLayout x:Name ="shelfLayout">
-                <Label x:Name="ShelffMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <!--<Picker x:Name="ProductsPicker" SelectedIndex="{Binding Product}" HorizontalOptions="FillAndExpand">
+                <Label x:Name="ShelffMessage" Text="" VerticalOptions="Center" HorizontalOptions="Center" />
+                <!--<Picker x:Name="ProductsPicker" SelectedIndex="" HorizontalOptions="FillAndExpand">
                 
               </Picker>-->
                 
@@ -69,9 +70,9 @@
             <ViewCell.View>
               <StackLayout x:Name ="registerLayout">
                 <Label Text="Register a New Smart Shelf (Enter or Scan barcode)" TextColor="Black" />
-                <Entry x:Name="txtScaleID" Text="{Binding ScaleID}"/>
+                <Entry x:Name="txtScaleID" Text=""/>
                 <Label Text="Description"/>
-                <Entry x:Name="txtDescription" Text="{Binding Description}"/>
+                <Entry x:Name="txtDescription" Text=""/>
                 <Button Text="Register"
                           
                           Clicked="OnRegisterShelfClicked" />
@@ -84,9 +85,6 @@
       </TableRoot>
     </TableView>
 
-    <ActivityIndicator IsVisible="{Binding IsBusy}"
-                       IsRunning="{Binding IsBusy}"
-                       Grid.Row="0"
-                       Grid.Column="0"/>
+    
   </Grid>
 </ContentPage>

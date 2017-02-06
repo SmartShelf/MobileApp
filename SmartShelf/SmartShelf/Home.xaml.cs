@@ -63,10 +63,7 @@ namespace SmartShelf
                 picker.Items.Add(p.name + " (" + p.weight + " g)");
             }
             
-            //picker.SelectedIndex = picker.Items.IndexOf(s.productId.ToString());
-            //int i = 1;
-            //shelf.scales.ForEach(delegate(Scale s))
-            //    { 
+            
 
             staticLayout.Children.Add(new Label() { Text = "Register New Smart Shelf Product", Font = Font.BoldSystemFontOfSize(17) });
             staticLayout.Children.Add(picker);
@@ -90,9 +87,7 @@ namespace SmartShelf
             }
             catch (Exception ex)
             {
-                //ProductsPicker.Items.Add("Dog Food");
-                //ProductsPicker.Items.Add("Ketchup");
-                //ProductsPicker.Items.Add("Detergent");  
+               
             }
         }
         private async void LoadScales()
@@ -288,17 +283,7 @@ namespace SmartShelf
         {
             try
             {
-                // var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/login?username={0}&password={1}", txtUsername.Text, txtPassword.Text));
-                //var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/products", string.Empty));
-                //var response = await client.GetAsync(uri);
-                //if (response.IsSuccessStatusCode)
-                //{
-                //    var content = await response.Content.ReadAsStringAsync();
-                //    var loginInfo = JsonConvert.DeserializeObject<LoginInfo>(content);
-
-
-                //    LoginMessage.Text = "Welcome " + loginInfo.firstName + " " + loginInfo.lastName;
-                    var AppNavPage = new NavigationPage(new Login())
+                  var AppNavPage = new NavigationPage(new Login())
                     {
                         BarBackgroundColor = Color.Blue,
                         BarTextColor = Color.White
@@ -307,35 +292,21 @@ namespace SmartShelf
 
 
                     await Navigation.PushModalAsync(AppNavPage);
-                //}
-                //else
-                //{
-                //ShelffMessage.Text = "Shelf" + txtScaleID.Text + " has been registered to your mobile profile.";
-                //}
+                
 
             }
             catch (Exception ex)
             {
                 var exst = ex.Message;
-                // LoginMessage.Text = exst;
+               
             }
-            // await _viewModel.SaveCarAsync();
+            
         }
 
         private async void HomeClicked()
         {
             try
             {
-                // var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/login?username={0}&password={1}", txtUsername.Text, txtPassword.Text));
-                //var uri = new Uri(string.Format("http://smartshelf.mybluemix.net/main/products", string.Empty));
-                //var response = await client.GetAsync(uri);
-                //if (response.IsSuccessStatusCode)
-                //{
-                //    var content = await response.Content.ReadAsStringAsync();
-                //    var loginInfo = JsonConvert.DeserializeObject<LoginInfo>(content);
-
-
-                //    LoginMessage.Text = "Welcome " + loginInfo.firstName + " " + loginInfo.lastName;
                 var AppNavPage = new NavigationPage(new ShelfSelect())
                 {
                     BarBackgroundColor = Color.Blue,
@@ -345,48 +316,16 @@ namespace SmartShelf
 
 
                 await Navigation.PushModalAsync(AppNavPage);
-                //}
-                //else
-                //{
-                //ShelffMessage.Text = "Shelf" + txtScaleID.Text + " has been registered to your mobile profile.";
-                //}
+               
 
             }
             catch (Exception ex)
             {
                 var exst = ex.Message;
-                // LoginMessage.Text = exst;
             }
-            // await _viewModel.SaveCarAsync();
         }
 
-        //public async Task<Shelf> SaveShelf(Shelf shelf)
-        //{
-        //    try
-        //    {
-        //        using (var client = new HttpClient())
-        //        {
-        //            client.BaseAddress = new Uri("http://smartshelf.mybluemix.net/");
-        //            client.DefaultRequestHeaders.Accept.Clear();
-                    
-        //            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-        //            StringContent content = new StringContent(JsonConvert.SerializeObject(shelf), Encoding.UTF8, "application/json");
-        //            // HTTP POST
-        //            HttpResponseMessage response = await client.PostAsync("main/shelf", content);
-        //            if (response.IsSuccessStatusCode)
-        //            {
-        //                string data = await response.Content.ReadAsStringAsync();
-        //                shelf = JsonConvert.DeserializeObject<Shelf>(data);
-        //            }
-        //        }
-        //        return shelf;
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        return null;
-        //    }
-        //}
+      
         public async void SaveShelf(Object sender, EventArgs e)
         {
             try

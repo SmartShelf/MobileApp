@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartShelf.Login">
+             x:Class="SmartShelf.Login"
+             Title="Smart Shelf Mobile App!">
 
 
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Smart Shelf Mobile App"></ToolbarItem>
-    <!--<ToolbarItem Icon="settingsstack.png"
-                 Clicked="OnSettingStackClicked"/>-->
+    
   </ContentPage.ToolbarItems>
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -41,7 +41,7 @@
           <ViewCell>
             <ViewCell.View>
               <StackLayout>
-                <Label x:Name="Title" Text="{Binding MainText}" FontSize="22" TextColor="Blue" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="Title"  FontSize="22" TextColor="Blue" VerticalOptions="Start" HorizontalOptions="Center" />
                 <Label Text="This is the Smart Shelf Mobile App Dashboard for registering and monitoring products on your Smart Shelf Scales." FontSize="12" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" />
                 <Label Text="Login" FontSize="18" TextColor="Blue" VerticalOptions="Start" HorizontalOptions="Center" />
 
@@ -53,7 +53,7 @@
               <StackLayout>
                 
                 <Label Text="Username"/>
-                <Entry x:Name="txtUsername" Text="{Binding UserName}"/>
+                <Entry x:Name="txtUsername" Text=""/>
               </StackLayout>
             </ViewCell.View>
           </ViewCell>
@@ -62,7 +62,7 @@
             <ViewCell.View>
               <StackLayout>
                 <Label Text="Password"/>
-                <Entry x:Name="txtPassword" Text="{Binding Password}"/>
+                <Entry x:Name="txtPassword" Text=""/>
               </StackLayout>
             </ViewCell.View>
           </ViewCell>
@@ -97,7 +97,7 @@
           <ViewCell>
             <ViewCell.View>
               <StackLayout>
-                <Label x:Name="LoginMessage" Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label x:Name="LoginMessage" Text="" VerticalOptions="Center" HorizontalOptions="Center" />
               </StackLayout>
             </ViewCell.View>
           </ViewCell>
@@ -105,9 +105,6 @@
       </TableRoot>
     </TableView>
 
-    <ActivityIndicator IsVisible="{Binding IsBusy}"
-                       IsRunning="{Binding IsBusy}"
-                       Grid.Row="0"
-                       Grid.Column="0"/>
+    
   </Grid>
 </ContentPage>

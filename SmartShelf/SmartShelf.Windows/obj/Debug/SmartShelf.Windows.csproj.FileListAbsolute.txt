@@ -1,4 +1,3 @@
-C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.Windows\bin\Debug\logout.jpg
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.Windows\bin\Debug\App.xbf
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.Windows\bin\Debug\MainPage.xbf
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.Windows\bin\Debug\SmartShelf.Windows.xr.xml

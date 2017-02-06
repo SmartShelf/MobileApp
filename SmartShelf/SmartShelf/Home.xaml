@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartShelf.Home">
+             x:Class="SmartShelf.Home"
+             Title="Smart Shelf - Monitor Scales">
 
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Smart Shelf Dashboard"></ToolbarItem>
@@ -60,9 +61,6 @@
     </TableRoot>
   </TableView>
 
-  <ActivityIndicator IsVisible="{Binding IsBusy}"
-                     IsRunning="{Binding IsBusy}"
-                     Grid.Row="0"
-                     Grid.Column="0"/>
+  
 </Grid>
 </ContentPage>

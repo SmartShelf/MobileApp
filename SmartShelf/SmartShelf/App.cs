@@ -12,21 +12,6 @@ namespace SmartShelf
     {
         public App()
         {
-            // The root page of your application
-            var content = new ContentPage
-            {
-                Title = "SmartShelf",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
             var AppNavPage = new NavigationPage(new Login())
             {
                 BarBackgroundColor = Color.Blue,
@@ -36,7 +21,6 @@ namespace SmartShelf
             
 
             MainPage = AppNavPage;
-            //MainPage = new NavigationPage(content);
         }
 
         protected override void OnStart()

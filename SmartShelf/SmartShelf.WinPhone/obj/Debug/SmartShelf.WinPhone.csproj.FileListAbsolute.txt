@@ -1,4 +1,3 @@
-C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.WinPhone\bin\Debug\logout.jpg
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.WinPhone\bin\Debug\SmartShelf.WinPhone.exe.config
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.WinPhone\bin\Debug\App.xbf
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf.WinPhone\bin\Debug\MainPage.xbf

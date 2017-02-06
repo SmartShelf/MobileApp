@@ -20,9 +20,8 @@ C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\bin\Debug\X
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.csproj.App.config
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.Home.xaml.g.cs
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.Login.xaml.g.cs
+C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.ShelfSelect.xaml.g.cs
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.dll
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.pdb
-C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.csprojResolveAssemblyReference.cache
-C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.ShelfSelect.xaml.g.cs
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\obj\Debug\SmartShelf.dll.mdb
 C:\Projects\ColumbusTeam\SmartShelf\SmartShelf\SmartShelf\SmartShelf\bin\Debug\SmartShelf.dll.mdb
